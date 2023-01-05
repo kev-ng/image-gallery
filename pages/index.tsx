@@ -9,7 +9,7 @@ export async function getStaticProps(){
     process.env.SUPABASE_SERVICE_ROLE_KEY || ''
   );
   
-  const {data} = await supabaseAdmin.from('images').select('*').order('id');
+  const {data} = await supabaseAdmin.from('images').select('*').order('created_at',{ ascending: false });
   return{
     props:{
       images:data
